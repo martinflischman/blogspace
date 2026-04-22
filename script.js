@@ -1,5 +1,3 @@
-const postsContainer = document.getElementById("posts");
-
 async function postArray() {
   const response = await fetch(
     "https://apis.scrimba.com/jsonplaceholder/posts",
@@ -7,11 +5,17 @@ async function postArray() {
   const data = await response.json();
   const posts = data.slice(0, 5);
 
-  posts.forEach((post) => {
-    const postTitle = `<h2>${post.title}</h2>`;
-    const postBody = `<p>${post.body}</p>`;
-    postsContainer.innerHTML += `${postTitle}${postBody}`;
-  });
+  let html = "";
+
+  for (let post of posts) {
+    html += `
+            <h3>${post.title}</h3>
+            <p>${post.body}</p>
+            <hr />
+        `;
+  }
+
+  document.getElementById("blog-list").innerHTML = html;
 }
 
 postArray();
