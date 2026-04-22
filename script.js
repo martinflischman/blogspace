@@ -9,9 +9,12 @@ async function postArray() {
 
   for (let post of posts) {
     html += `
-        <h3>${post.title}</h3>
-        <p>${post.body}</p>
-        <hr />
+        <div class="card w-96 bg-base-100 card-md mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title">${post.title}</h2>
+                <p>${post.body}</p>
+            </div>
+        </div>
     `;
   }
 

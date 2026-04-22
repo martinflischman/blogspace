@@ -5,12 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlogSpace</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 
 <body>
-    <div id="blog-list"></div>
+    <div class="navbar bg-base-300 shadow-sm">
+        <a class="btn btn-ghost text-3xl">BlogSpace</a>
+    </div>
+
+    <form class="p-4">
+        <fieldset class="fieldset w-full max-w-2xl p-4">
+            <label class="label">Post title</label>
+            <input type="text" class="input w-full mb-4" placeholder="Summer in Italy" />
+
+            <label class="label">Post content</label>
+            <textarea class="textarea h-24 w-full" placeholder="Today I..."></textarea>
+
+            <button class="btn btn-neutral mt-4">Post</button>
+        </fieldset>
+    </form>
+
+    <div id="blog-list" class="bg-base-300 p-4">
+    </div>
 </body>
 
 </html>
