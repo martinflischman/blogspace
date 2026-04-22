@@ -16,17 +16,17 @@
 </head>
 
 <body>
-    <div class="navbar bg-base-300 shadow-sm">
+    <div class="navbar bg-base-300">
         <a class="btn btn-ghost text-3xl">BlogSpace</a>
     </div>
 
     <form class="p-4">
         <fieldset class="fieldset w-full max-w-2xl p-4">
-            <label class="label">Post title</label>
-            <input type="text" class="input w-full mb-4" placeholder="Summer in Italy" />
+            <label for="post-title" class="label">Post title</label>
+            <input id="post-title" type="text" class="input w-full mb-4" placeholder="Summer in Italy" />
 
-            <label class="label">Post content</label>
-            <textarea class="textarea h-24 w-full" placeholder="Today I..."></textarea>
+            <label for="post-content" class="label">Post content</label>
+            <textarea id="post-content" class="textarea h-24 w-full" placeholder="Today I..."></textarea>
 
             <button class="btn btn-neutral mt-4">Post</button>
         </fieldset>
