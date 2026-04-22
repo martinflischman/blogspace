@@ -9,10 +9,10 @@ async function postArray() {
 
   for (let post of posts) {
     html += `
-            <h3>${post.title}</h3>
-            <p>${post.body}</p>
-            <hr />
-        `;
+        <h3>${post.title}</h3>
+        <p>${post.body}</p>
+        <hr />
+    `;
   }
 
   document.getElementById("blog-list").innerHTML = html;
