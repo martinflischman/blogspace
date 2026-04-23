@@ -35,13 +35,15 @@ document.getElementById("post-form").addEventListener("submit", (e) => {
     body: postBody.value,
   };
 
-  fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
+  const options = {
     method: "POST",
+    body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
-  })
+  };
+
+  fetch("https://apis.scrimba.com/jsonplaceholder/posts", options)
     .then((response) => response.json())
     .then((data) =>
       blogList.insertAdjacentHTML(
