@@ -1,3 +1,18 @@
+const postForm = document.getElementById("post-form");
+
+postForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const title = document.getElementById("post-title").value;
+  const body = document.getElementById("post-body").value;
+
+  const post = {
+    title: title,
+    body: body,
+  };
+
+  console.log(post);
+});
+
 async function postArray() {
   const response = await fetch(
     "https://apis.scrimba.com/jsonplaceholder/posts",
