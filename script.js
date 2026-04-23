@@ -1,17 +1,6 @@
-const postForm = document.getElementById("post-form");
-
-postForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const title = document.getElementById("post-title").value;
-  const body = document.getElementById("post-body").value;
-
-  const post = {
-    title: title,
-    body: body,
-  };
-
-  console.log(post);
-});
+const postTitle = document.getElementById("post-title");
+const postBody = document.getElementById("post-body");
+const blogList = document.getElementById("blog-list");
 
 async function postArray() {
   const response = await fetch(
@@ -33,7 +22,41 @@ async function postArray() {
     `;
   }
 
-  document.getElementById("blog-list").innerHTML = html;
+  blogList.innerHTML = html;
 }
 
 postArray();
+
+document.getElementById("post-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const data = {
+    title: postTitle.value,
+    body: postBody.value,
+  };
+
+  fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((data) =>
+      blogList.insertAdjacentHTML(
+        "afterbegin",
+        `
+        <div class="card w-96 bg-base-100 card-md mb-4 shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title">${data.title}</h2>
+                <p>${data.body}</p>
+            </div>
+        </div>
+    `,
+      ),
+    );
+
+  postTitle.value = "";
+  postBody.value = "";
+});
